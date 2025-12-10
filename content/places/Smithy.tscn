@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://6n1w7vvglk07"]
+
+[ext_resource type="Script" uid="uid://sl2bhs3cx6id" path="res://content/places/Smithy.gd" id="1_hniw3"]
+[ext_resource type="PackedScene" uid="uid://c3ctm2ulcebqi" path="res://content/places/Clickable.tscn" id="2_8i3nb"]
+[ext_resource type="Texture2D" uid="uid://8535gb0pagqe" path="res://textures/places/smithy.png" id="2_n1poa"]
+
+[node name="Smithy" type="Node2D"]
+script = ExtResource("1_hniw3")
+scene_code = "smithy"
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("2_n1poa")
+centered = false
+
+[node name="Back" parent="." instance=ExtResource("2_8i3nb")]
+position = Vector2(1093, 533)
+animation = &"back_arrow"
+
+[node name="CollisionPolygon2D" parent="Back/Area2D" index="0"]
+polygon = PackedVector2Array(-116, -33, 37, -72, 123, -2, 21, 74, -117, 48)
+
+[connection signal="clicked" from="Back" to="." method="_on_back_clicked"]
+
+[editable path="Back"]

@@ -1,0 +1,66 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://dlaf81nkndmwr"]
+
+[ext_resource type="Texture2D" uid="uid://did3b788oya5c" path="res://textures/machines/machines.png" id="1_ttthk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2gcd"]
+atlas = ExtResource("1_ttthk")
+region = Rect2(250, 0, 250, 280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_drupw"]
+atlas = ExtResource("1_ttthk")
+region = Rect2(0, 0, 250, 280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33pqr"]
+atlas = ExtResource("1_ttthk")
+region = Rect2(1000, 0, 250, 280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j041n"]
+atlas = ExtResource("1_ttthk")
+region = Rect2(750, 0, 250, 280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqjt0"]
+atlas = ExtResource("1_ttthk")
+region = Rect2(500, 0, 250, 280)
+
+[resource]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"extractor_idle",
+"speed": 0.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"infuser_idle",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f2gcd")
+}],
+"loop": true,
+"name": &"merger_finished",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_drupw")
+}],
+"loop": true,
+"name": &"merger_idle",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33pqr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j041n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqjt0")
+}],
+"loop": true,
+"name": &"merger_working",
+"speed": 15.0
+}]

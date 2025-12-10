@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnu06al1lfoim"]
+
+[ext_resource type="Script" uid="uid://xr4qu347vyob" path="res://content/machines/BaseMachine.gd" id="1_qiysh"]
+[ext_resource type="SpriteFrames" uid="uid://dlaf81nkndmwr" path="res://textures/machines/machines.tres" id="2_rcjpj"]
+
+[node name="ExtractorMachine" type="Node2D"]
+script = ExtResource("1_qiysh")
+_type = "extractor"
+
+[node name="Machine" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_rcjpj")
+animation = &"merger"
+offset = Vector2(0, -84.035)
+
+[node name="Input" type="Node2D" parent="."]
+
+[node name="Catalyst" type="Node2D" parent="."]
+
+[node name="Output" type="Node2D" parent="."]

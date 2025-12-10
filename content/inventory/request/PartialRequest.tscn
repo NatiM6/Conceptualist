@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctih5naipn364"]
+
+[ext_resource type="Script" uid="uid://l32dpgadtpoa" path="res://content/inventory/request/PartialRequest.gd" id="1_rgnm4"]
+[ext_resource type="SpriteFrames" uid="uid://drwsu2nnj8y21" path="res://textures/inventory_items/items.tres" id="1_y56bj"]
+
+[node name="PartialRequest" type="Control"]
+custom_minimum_size = Vector2(91, 31)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 91.0
+offset_bottom = 31.0
+tooltip_text = "Tooltip would be the item tooltip"
+mouse_filter = 1
+script = ExtResource("1_rgnm4")
+
+[node name="Icon" type="AnimatedSprite2D" parent="."]
+position = Vector2(3, 3)
+scale = Vector2(0.25, 0.25)
+sprite_frames = ExtResource("1_y56bj")
+animation = &"orb_fire"
+centered = false
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 2.0
+offset_right = 91.0
+offset_bottom = 28.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "99 / 99"
+horizontal_alignment = 1
+vertical_alignment = 1

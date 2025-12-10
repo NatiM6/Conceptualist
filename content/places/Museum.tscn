@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsso077vidl0w"]
+
+[ext_resource type="Script" uid="uid://bf3npk8tcufv4" path="res://content/places/Museum.gd" id="1_10noj"]
+[ext_resource type="PackedScene" uid="uid://c3ctm2ulcebqi" path="res://content/places/Clickable.tscn" id="2_1v06d"]
+[ext_resource type="Texture2D" uid="uid://dbk23p4jxy3oj" path="res://textures/places/museum.png" id="2_x7f6j"]
+
+[node name="Museum" type="Node2D"]
+script = ExtResource("1_10noj")
+scene_code = "museum"
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("2_x7f6j")
+centered = false
+
+[node name="Back" parent="." instance=ExtResource("2_1v06d")]
+position = Vector2(1093, 533)
+animation = &"back_arrow"
+
+[node name="CollisionPolygon2D" parent="Back/Area2D" index="0"]
+polygon = PackedVector2Array(-116, -33, 37, -72, 123, -2, 21, 74, -117, 48)
+
+[connection signal="clicked" from="Back" to="." method="_on_back_clicked"]
+
+[editable path="Back"]

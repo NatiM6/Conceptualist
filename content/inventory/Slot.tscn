@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://dadnblwwob0wo"]
+
+[ext_resource type="SpriteFrames" uid="uid://drwsu2nnj8y21" path="res://textures/inventory_items/items.tres" id="2_jfmc5"]
+[ext_resource type="Script" uid="uid://dnyucre6dfwfm" path="res://content/inventory/Slot.gd" id="2_pmmmb"]
+
+[node name="Slot" type="Control"]
+clip_contents = true
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 120.0
+offset_bottom = 120.0
+mouse_filter = 1
+script = ExtResource("2_pmmmb")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.12156863)
+
+[node name="Icon" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_jfmc5")
+animation = &"orb_fire"
+centered = false
+offset = Vector2(10, 10)
+
+[node name="Outline" type="Sprite2D" parent="."]
+visible = false
+centered = false
+offset = Vector2(2.5, 2.5)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "LABEL"
+vertical_alignment = 2

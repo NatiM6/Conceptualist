@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxpfja8hjpxd5"]
+
+[ext_resource type="Script" uid="uid://2yp1x4wd0hxh" path="res://content/inventory/shop/Product.gd" id="1_ye1f3"]
+[ext_resource type="SpriteFrames" uid="uid://drwsu2nnj8y21" path="res://textures/inventory_items/items.tres" id="2_gpwja"]
+[ext_resource type="SpriteFrames" uid="uid://dpa18m40hq0y8" path="res://textures/ui/clickables/clickables.tres" id="2_ji6aw"]
+[ext_resource type="PackedScene" uid="uid://c3ctm2ulcebqi" path="res://content/places/Clickable.tscn" id="3_ji6aw"]
+
+[node name="Product" type="Control"]
+custom_minimum_size = Vector2(135, 165)
+layout_mode = 3
+anchor_right = 0.105000004
+anchor_bottom = 0.172
+offset_right = 0.59999084
+offset_bottom = -0.120010376
+mouse_filter = 2
+script = ExtResource("1_ye1f3")
+
+[node name="Pocket" type="AnimatedSprite2D" parent="."]
+position = Vector2(67, 63)
+sprite_frames = ExtResource("2_ji6aw")
+animation = &"pocket"
+
+[node name="Icon" parent="." instance=ExtResource("3_ji6aw")]
+position = Vector2(67.095, 62)
+sprite_frames = ExtResource("2_gpwja")
+animation = &"orb_fire"
+
+[node name="CollisionPolygon2D" parent="Icon/Area2D" index="0"]
+polygon = PackedVector2Array(-39, -38, 2, -52, 36, -33, 50, 0, 34, 36, 0, 51, -38, 35, -50, 1)
+
+[node name="Price" type="Label" parent="."]
+layout_mode = 0
+offset_left = 33.095
+offset_top = 119.0
+offset_right = 97.095
+offset_bottom = 158.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+text = "$999"
+horizontal_alignment = 1
+
+[node name="Stock" type="Label" parent="."]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 95.0
+offset_right = 125.0
+offset_bottom = 118.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "99"
+horizontal_alignment = 2
+
+[connection signal="clicked" from="Icon" to="." method="_on_clicked"]
+
+[editable path="Icon"]

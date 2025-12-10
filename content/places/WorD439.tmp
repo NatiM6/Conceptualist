@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://cyokyhmfmxkdm"]
+
+[ext_resource type="Script" path="res://content/places/Workshop.gd" id="1_g5ocq"]
+[ext_resource type="PackedScene" uid="uid://rycihnkue1la" path="res://content/machines/MachineSlot.tscn" id="2_hf2fn"]
+[ext_resource type="Texture2D" uid="uid://60vg3po3oqm7" path="res://textures/places/workshop.png" id="3_pcrw5"]
+[ext_resource type="PackedScene" uid="uid://c3ctm2ulcebqi" path="res://content/places/Clickable.tscn" id="4_mfi1l"]
+[ext_resource type="Texture2D" uid="uid://3ddv17q2m85q" path="res://textures/places/clickables/toolrack.png" id="5_qcdvl"]
+[ext_resource type="Texture2D" uid="uid://bkyiet7ga3sir" path="res://textures/places/clickables/door.png" id="6_inew7"]
+
+[node name="Workshop" type="Node2D"]
+script = ExtResource("1_g5ocq")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("3_pcrw5")
+centered = false
+
+[node name="Machines" type="Node2D" parent="."]
+
+[node name="MachineSlot" parent="Machines" instance=ExtResource("2_hf2fn")]
+position = Vector2(277, 381)
+
+[node name="MachineSlot2" parent="Machines" instance=ExtResource("2_hf2fn")]
+position = Vector2(492, 381)
+
+[node name="MachineSlot3" parent="Machines" instance=ExtResource("2_hf2fn")]
+position = Vector2(712, 385)
+
+[node name="MachineSlot4" parent="Machines" instance=ExtResource("2_hf2fn")]
+position = Vector2(923, 387)
+
+[node name="MachineSlot5" parent="Machines" instance=ExtResource("2_hf2fn")]
+position = Vector2(190, 591)
+
+[node name="MachineSlot6" parent="Machines" instance=ExtResource("2_hf2fn")]
+position = Vector2(399, 587)
+
+[node name="MachineSlot7" parent="Machines" instance=ExtResource("2_hf2fn")]
+position = Vector2(611, 588)
+
+[node name="MachineSlot8" parent="Machines" instance=ExtResource("2_hf2fn")]
+position = Vector2(820, 589)
+
+[node name="MachineSlot9" parent="Machines" instance=ExtResource("2_hf2fn")]
+position = Vector2(1022, 588)
+
+[node name="ToolRack" parent="." instance=ExtResource("4_mfi1l")]
+position = Vector2(85, 235)
+texture = ExtResource("5_qcdvl")
+
+[node name="CollisionPolygon2D" parent="ToolRack/Area2D" index="0"]
+polygon = PackedVector2Array(-48, -28, 41, -141, 46, 19, -49, 131)
+
+[node name="Door" parent="." instance=ExtResource("4_mfi1l")]
+position = Vector2(1155, 281)
+texture = ExtResource("6_inew7")
+
+[node name="CollisionPolygon2D" parent="Door/Area2D" index="0"]
+position = Vector2(-1154, -278)
+polygon = PackedVector2Array(1096, 61, 1221, 188, 1190, 506, 1094, 331)
+
+[connection signal="input_event" from="ToolRack/Area2D" to="." method="_on_tools_clicked"]
+
+[editable path="ToolRack"]
+[editable path="Door"]

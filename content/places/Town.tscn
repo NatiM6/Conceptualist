@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkahqi7f88tqw"]
+
+[ext_resource type="Script" uid="uid://qy8hbpucaukr" path="res://content/places/Town.gd" id="1_v7ptw"]
+[ext_resource type="Texture2D" uid="uid://bqja45pgv1dey" path="res://textures/places/town.png" id="2_oyeqr"]
+[ext_resource type="PackedScene" uid="uid://c3ctm2ulcebqi" path="res://content/places/Clickable.tscn" id="3_xt3cn"]
+
+[node name="Town" type="Node2D"]
+script = ExtResource("1_v7ptw")
+scene_code = "town"
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("2_oyeqr")
+centered = false
+
+[node name="Workshop" parent="." instance=ExtResource("3_xt3cn")]
+position = Vector2(738, 226)
+animation = &"workshop"
+
+[node name="CollisionPolygon2D" parent="Workshop/Area2D" index="0"]
+polygon = PackedVector2Array(11, -153, 61, -152, 70, -78, 165, 20, 164, 42, 139, 115, 40, 161, -136, 156, -154, 14)
+
+[node name="Smithy" parent="." instance=ExtResource("3_xt3cn")]
+position = Vector2(904, 431)
+animation = &"smithy"
+
+[node name="CollisionPolygon2D" parent="Smithy/Area2D" index="0"]
+position = Vector2(-72, -2)
+polygon = PackedVector2Array(-15, -47, 10, -71, 43, -78, 77, -115, 88, -188, 178, -187, 247, -49, 267, 16, 296, 60, 283, 174, 191, 190, 63, 198, -7, 200, -97, 153, -94, 132, -36, 94, -57, 72, -49, 30)
+
+[node name="Postbox" parent="." instance=ExtResource("3_xt3cn")]
+position = Vector2(175, 479)
+scale = Vector2(0.8, 0.8)
+animation = &"postbox"
+
+[node name="CollisionPolygon2D" parent="Postbox/Area2D" index="0"]
+polygon = PackedVector2Array(-191.25, -92.5, 58.75, -93.75, 173.75, -62.5, 181.25, 73.75, -170, 88.75, -186.25, 27.5)
+
+[node name="Figure" parent="." instance=ExtResource("3_xt3cn")]
+position = Vector2(1179, 327)
+animation = &"figure"
+
+[node name="CollisionPolygon2D" parent="Figure/Area2D" index="0"]
+polygon = PackedVector2Array(-78, 22, -76, -49, -44, -91, -1, -94, 28, -71, 52, -13, 67, 75, 35, 92, -30, 99, -70, 90)
+
+[node name="Museum" parent="." instance=ExtResource("3_xt3cn")]
+position = Vector2(170, 269)
+animation = &"museum"
+
+[node name="CollisionPolygon2D" parent="Museum/Area2D" index="0"]
+polygon = PackedVector2Array(-175, -58, -93, -103, 50, -118, 169, -50, 156, 116, -44, 120, -177, 78)
+
+[connection signal="clicked" from="Workshop" to="." method="_on_workshop_clicked"]
+[connection signal="clicked" from="Smithy" to="." method="_on_smithy_clicked"]
+[connection signal="clicked" from="Postbox" to="." method="_on_postbox_clicked"]
+[connection signal="clicked" from="Figure" to="." method="_on_figure_clicked"]
+[connection signal="clicked" from="Museum" to="." method="_on_museum_clicked"]
+
+[editable path="Workshop"]
+[editable path="Smithy"]
+[editable path="Postbox"]
+[editable path="Figure"]
+[editable path="Museum"]

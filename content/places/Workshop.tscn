@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://cyokyhmfmxkdm"]
+
+[ext_resource type="Script" uid="uid://dk1helcu5aeaa" path="res://content/places/Workshop.gd" id="1_g5ocq"]
+[ext_resource type="PackedScene" uid="uid://rycihnkue1la" path="res://content/machines/MachineSlot.tscn" id="2_hf2fn"]
+[ext_resource type="Texture2D" uid="uid://60vg3po3oqm7" path="res://textures/places/workshop.png" id="3_pcrw5"]
+[ext_resource type="PackedScene" uid="uid://c3ctm2ulcebqi" path="res://content/places/Clickable.tscn" id="4_mfi1l"]
+
+[node name="Workshop" type="Node2D"]
+script = ExtResource("1_g5ocq")
+scene_code = "workshop"
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("3_pcrw5")
+centered = false
+
+[node name="Machines" type="Node2D" parent="."]
+
+[node name="MachineSlot" parent="Machines" instance=ExtResource("2_hf2fn")]
+position = Vector2(318, 300)
+
+[node name="MachineSlot2" parent="Machines" instance=ExtResource("2_hf2fn")]
+position = Vector2(574, 300)
+
+[node name="MachineSlot5" parent="Machines" instance=ExtResource("2_hf2fn")]
+position = Vector2(184, 585)
+
+[node name="MachineSlot6" parent="Machines" instance=ExtResource("2_hf2fn")]
+position = Vector2(439, 585)
+
+[node name="MachineSlot7" parent="Machines" instance=ExtResource("2_hf2fn")]
+position = Vector2(694, 585)
+
+[node name="MachineSlot8" parent="Machines" instance=ExtResource("2_hf2fn")]
+position = Vector2(949, 585)
+
+[node name="ToolRack" parent="." instance=ExtResource("4_mfi1l")]
+position = Vector2(886, 125)
+
+[node name="CollisionPolygon2D" parent="ToolRack/Area2D" index="0"]
+polygon = PackedVector2Array(65, 54, -61, 55, -100, 26, -99, -57, 96, -57, 98, 26)
+
+[node name="Door" parent="." instance=ExtResource("4_mfi1l")]
+position = Vector2(1144, 302)
+animation = &"door"
+
+[node name="CollisionPolygon2D" parent="Door/Area2D" index="0"]
+position = Vector2(-1154, -278)
+polygon = PackedVector2Array(1097, 67, 1217, 129, 1211, 501, 1098, 290)
+
+[node name="Ladder" parent="." instance=ExtResource("4_mfi1l")]
+position = Vector2(116, 160)
+animation = &"ladder"
+
+[node name="CollisionPolygon2D" parent="Ladder/Area2D" index="0"]
+polygon = PackedVector2Array(-43, -163, 43, -163, 43, 61, -24, 150, -40, 140)
+
+[connection signal="clicked" from="ToolRack" to="." method="_on_tools_clicked"]
+[connection signal="clicked" from="Door" to="." method="_on_door_clicked"]
+[connection signal="clicked" from="Ladder" to="." method="_on_ladder_clicked"]
+
+[editable path="ToolRack"]
+[editable path="Door"]
+[editable path="Ladder"]

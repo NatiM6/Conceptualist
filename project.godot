@@ -1,0 +1,49 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Conceptualist"
+run/main_scene="res://content/Game.tscn"
+config/features=PackedStringArray("4.5", "GL Compatibility")
+config/icon="res://icon.svg"
+
+[autoload]
+
+ConfigManager="*res://content/managers/ConfigManager.gd"
+AudioManager="*res://content/managers/AudioManager.gd"
+OutlineManager="*res://content/managers/OutlineManager.gd"
+ItemManager="*res://content/managers/ItemManager.gd"
+RecipeManager="*res://content/managers/RecipeManager.gd"
+DialogueManager="*res://content/managers/DialogueManager.gd"
+TimeManager="*res://content/managers/TimeManager.gd"
+GameManager="*res://content/managers/GameManager.gd"
+SaveManager="*res://content/managers/SaveManager.gd"
+Overlay="*res://content/overlay/Overlay.tscn"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=960
+window/size/resizable=false
+
+[gui]
+
+theme/custom="uid://bm8o3vxst4ovy"
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://lang/lang.en_US.translation", "res://lang/lang.pl_PL.translation")
+locale/test="en"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

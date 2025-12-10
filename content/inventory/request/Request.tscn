@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1yk5xwcxm4os"]
+
+[ext_resource type="Script" uid="uid://celk8h5uhcihw" path="res://content/inventory/request/Request.gd" id="1_wbhp1"]
+[ext_resource type="PackedScene" uid="uid://c3ctm2ulcebqi" path="res://content/places/Clickable.tscn" id="2_hlglq"]
+
+[node name="Request" type="Control"]
+custom_minimum_size = Vector2(150, 180)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 150.0
+offset_bottom = 180.0
+mouse_filter = 2
+script = ExtResource("1_wbhp1")
+
+[node name="Paper" parent="." instance=ExtResource("2_hlglq")]
+animation = &"request"
+centered = false
+
+[node name="CollisionPolygon2D" parent="Paper/Area2D" index="0"]
+polygon = PackedVector2Array(8, 7, 144, 6, 146, 174, 26, 175, 8, 160)
+
+[node name="Partials" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 25.0
+offset_right = 123.0
+offset_bottom = 126.0
+alignment = 1
+
+[node name="Reward" type="Label" parent="."]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 123.0
+offset_right = 123.0
+offset_bottom = 157.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "$ 9999"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="clicked" from="Paper" to="." method="_on_clicked"]
+
+[editable path="Paper"]

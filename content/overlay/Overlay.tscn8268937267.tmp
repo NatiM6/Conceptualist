@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bn40244nqym0c"]
+
+[ext_resource type="Script" uid="uid://d2kkmt658g7l8" path="res://content/overlay/Overlay.gd" id="1_5tkwp"]
+[ext_resource type="PackedScene" uid="uid://dadnblwwob0wo" path="res://content/inventory/Slot.tscn" id="2_q0jh6"]
+[ext_resource type="SpriteFrames" uid="uid://dad4mg7yn7vm6" path="res://textures/ui/cursor.tres" id="3_u4qnn"]
+[ext_resource type="Script" uid="uid://ccsxpoddl8u8n" path="res://content/overlay/DialoguePanel.gd" id="4_q0jh6"]
+
+[node name="Overlay" type="Node2D"]
+z_index = 1000
+script = ExtResource("1_5tkwp")
+
+[node name="Cursor" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("3_u4qnn")
+animation = &"point"
+
+[node name="Slot" parent="Cursor" instance=ExtResource("2_q0jh6")]
+z_index = -1
+offset_left = -60.0
+offset_top = -60.0
+offset_right = 60.0
+offset_bottom = 60.0
+mouse_filter = 2
+
+[node name="Journal" type="Node2D" parent="."]
+
+[node name="DialoguePanel" type="Node2D" parent="."]
+script = ExtResource("4_q0jh6")

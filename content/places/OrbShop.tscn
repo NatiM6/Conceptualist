@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=3 uid="uid://cs4i1rv4k2q2g"]
+
+[ext_resource type="Script" uid="uid://26tutb3gttad" path="res://content/places/OrbShop.gd" id="1_s1cxi"]
+[ext_resource type="PackedScene" uid="uid://c3ctm2ulcebqi" path="res://content/places/Clickable.tscn" id="2_btp4l"]
+[ext_resource type="Texture2D" uid="uid://baxyvgu14w7t6" path="res://textures/places/orbshop.png" id="2_nem3o"]
+[ext_resource type="PackedScene" uid="uid://bxpfja8hjpxd5" path="res://content/inventory/shop/Product.tscn" id="4_nem3o"]
+
+[node name="OrbShop" type="Node2D"]
+script = ExtResource("1_s1cxi")
+scene_code = "orbshop"
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("2_nem3o")
+centered = false
+
+[node name="Back" parent="." instance=ExtResource("2_btp4l")]
+position = Vector2(1064, 142)
+animation = &"back_arrow"
+
+[node name="CollisionPolygon2D" parent="Back/Area2D" index="0"]
+polygon = PackedVector2Array(-116, -33, 37, -72, 123, -2, 21, 74, -117, 48)
+
+[node name="Fox" parent="." instance=ExtResource("2_btp4l")]
+position = Vector2(438, 332)
+animation = &"orbshop_fox"
+
+[node name="CollisionPolygon2D" parent="Fox/Area2D" index="0"]
+polygon = PackedVector2Array(-355, -336, 402, -333, 302, -178, 42, -182, 66, -152, 91, -81, 108, -6, 128, 153, 139, 335, -308, 337, -416, 282, -247, -152, -252, -195, -330, -190, -277, -264)
+
+[node name="Basics" type="HBoxContainer" parent="."]
+offset_left = 569.0
+offset_top = 253.0
+offset_right = 1127.0
+offset_bottom = 442.0
+alignment = 1
+
+[node name="Fire" parent="Basics" instance=ExtResource("4_nem3o")]
+layout_mode = 2
+
+[node name="Water" parent="Basics" instance=ExtResource("4_nem3o")]
+layout_mode = 2
+
+[node name="Air" parent="Basics" instance=ExtResource("4_nem3o")]
+layout_mode = 2
+
+[node name="Earth" parent="Basics" instance=ExtResource("4_nem3o")]
+layout_mode = 2
+
+[node name="Specials" type="GridContainer" parent="."]
+offset_left = 622.0
+offset_top = 429.0
+offset_right = 1133.0
+offset_bottom = 596.0
+columns = 4
+
+[connection signal="clicked" from="Back" to="." method="_on_back_clicked"]
+[connection signal="clicked" from="Fox" to="." method="_on_fox_clicked"]
+
+[editable path="Back"]
+[editable path="Fox"]

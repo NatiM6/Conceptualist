@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxjaxqhyvhhtb"]
+
+[ext_resource type="Script" uid="uid://yk2oc4rj5dv7" path="res://content/overlay/Portrait.gd" id="1_bfhot"]
+[ext_resource type="SpriteFrames" uid="uid://8q52ns51x635" path="res://textures/ui/characters/characters.tres" id="1_iyc0e"]
+
+[node name="Portrait" type="Node2D"]
+script = ExtResource("1_bfhot")
+CLOSED = 50
+
+[node name="Body" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_iyc0e")
+animation = &"croc_body"
+
+[node name="Face" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_iyc0e")
+animation = &"croc_neutral"

@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://b428rqsvm4xd2"]
+
+[ext_resource type="Script" uid="uid://b1wscgnfoss61" path="res://content/places/Bedroom.gd" id="1_tjuo5"]
+[ext_resource type="PackedScene" uid="uid://c3ctm2ulcebqi" path="res://content/places/Clickable.tscn" id="2_jcb11"]
+[ext_resource type="PackedScene" uid="uid://dadnblwwob0wo" path="res://content/inventory/Slot.tscn" id="3_n72oh"]
+
+[node name="Bedroom" type="Node2D"]
+script = ExtResource("1_tjuo5")
+scene_code = "bedroom"
+
+[node name="Background" type="Sprite2D" parent="."]
+
+[node name="Back" parent="." instance=ExtResource("2_jcb11")]
+position = Vector2(127, 491)
+rotation = 1.57079
+animation = &"back_arrow"
+
+[node name="CollisionPolygon2D" parent="Back/Area2D" index="0"]
+polygon = PackedVector2Array(-116, -33, 37, -72, 123, -2, 21, 74, -117, 48)
+
+[node name="Inventory" type="GridContainer" parent="."]
+offset_left = 402.0
+offset_top = 120.0
+offset_right = 854.0
+offset_bottom = 458.0
+scale = Vector2(0.75, 0.75)
+columns = 4
+
+[node name="Slot" parent="Inventory" instance=ExtResource("3_n72oh")]
+layout_mode = 2
+
+[node name="Slot2" parent="Inventory" instance=ExtResource("3_n72oh")]
+layout_mode = 2
+
+[node name="Slot3" parent="Inventory" instance=ExtResource("3_n72oh")]
+layout_mode = 2
+
+[node name="Slot4" parent="Inventory" instance=ExtResource("3_n72oh")]
+layout_mode = 2
+
+[node name="Slot5" parent="Inventory" instance=ExtResource("3_n72oh")]
+layout_mode = 2
+
+[node name="Slot6" parent="Inventory" instance=ExtResource("3_n72oh")]
+layout_mode = 2
+
+[node name="Slot7" parent="Inventory" instance=ExtResource("3_n72oh")]
+layout_mode = 2
+
+[node name="Slot8" parent="Inventory" instance=ExtResource("3_n72oh")]
+layout_mode = 2
+
+[node name="Slot9" parent="Inventory" instance=ExtResource("3_n72oh")]
+layout_mode = 2
+
+[node name="Slot10" parent="Inventory" instance=ExtResource("3_n72oh")]
+layout_mode = 2
+
+[node name="Slot11" parent="Inventory" instance=ExtResource("3_n72oh")]
+layout_mode = 2
+
+[node name="Slot12" parent="Inventory" instance=ExtResource("3_n72oh")]
+layout_mode = 2
+
+[connection signal="clicked" from="Back" to="." method="_on_back_clicked"]
+
+[editable path="Back"]

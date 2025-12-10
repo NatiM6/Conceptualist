@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3ctm2ulcebqi"]
+
+[ext_resource type="SpriteFrames" uid="uid://dpa18m40hq0y8" path="res://textures/ui/clickables/clickables.tres" id="1_lcpay"]
+[ext_resource type="Script" uid="uid://c1jwbn0lxduud" path="res://content/places/Clickable.gd" id="1_ln2ru"]
+
+[node name="Clickable" type="AnimatedSprite2D"]
+sprite_frames = ExtResource("1_lcpay")
+animation = &"toolrack"
+script = ExtResource("1_ln2ru")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+
+[connection signal="input_event" from="Area2D" to="." method="_on_clicked"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_hover"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_unhover"]

@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxg8tqr68hqrm"]
+
+[ext_resource type="Script" uid="uid://btv4o2xi27x0o" path="res://content/places/Postbox.gd" id="1_ni1sy"]
+[ext_resource type="PackedScene" uid="uid://c3ctm2ulcebqi" path="res://content/places/Clickable.tscn" id="2_l4a28"]
+[ext_resource type="Texture2D" uid="uid://cbvjl3gn656hc" path="res://textures/places/postbox.png" id="2_wb5mv"]
+
+[node name="Postbox" type="Node2D"]
+script = ExtResource("1_ni1sy")
+scene_code = "postbox"
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("2_wb5mv")
+centered = false
+
+[node name="Back" parent="." instance=ExtResource("2_l4a28")]
+position = Vector2(994, 133)
+animation = &"back_arrow"
+
+[node name="CollisionPolygon2D" parent="Back/Area2D" index="0"]
+polygon = PackedVector2Array(-116, -33, 37, -72, 123, -2, 21, 74, -117, 48)
+
+[node name="Postbox" parent="." instance=ExtResource("2_l4a28")]
+position = Vector2(993, 438)
+animation = &"postbox_close"
+
+[node name="CollisionPolygon2D" parent="Postbox/Area2D" index="0"]
+polygon = PackedVector2Array(-139, -181, 130, -186, 162, -148, 194, -41, 210, 132, 210, 222, -208, 222, -217, -33, -197, -125)
+
+[node name="RequestGrid" type="GridContainer" parent="."]
+offset_left = 94.0
+offset_top = 103.0
+offset_right = 706.0
+offset_bottom = 467.0
+columns = 4
+
+[connection signal="clicked" from="Back" to="." method="_on_back_clicked"]
+[connection signal="clicked" from="Postbox" to="." method="_on_postbox_clicked"]
+
+[editable path="Back"]
+[editable path="Postbox"]

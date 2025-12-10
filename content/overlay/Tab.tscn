@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://ds0ocyr3io63r"]
+
+[ext_resource type="Script" path="res://content/overlay/Tab.gd" id="1_wf2v2"]
+[ext_resource type="Texture2D" uid="uid://cfrm3p5gx7ykj" path="res://textures/ui/tab.png" id="2_usxy7"]
+[ext_resource type="Texture2D" uid="uid://bjtotysn7upn3" path="res://textures/ui/icons.png" id="3_52ltn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ibfjw"]
+size = Vector2(145, 86)
+
+[node name="Tab" type="Node2D"]
+script = ExtResource("1_wf2v2")
+
+[node name="Movable" type="Node2D" parent="."]
+
+[node name="Background" type="Sprite2D" parent="Movable"]
+texture = ExtResource("2_usxy7")
+
+[node name="Icon" type="Sprite2D" parent="Movable"]
+position = Vector2(21, 0)
+texture = ExtResource("3_52ltn")
+hframes = 3
+
+[node name="Area2D" type="Area2D" parent="Movable"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Movable/Area2D"]
+shape = SubResource("RectangleShape2D_ibfjw")
+
+[connection signal="input_event" from="Movable/Area2D" to="." method="_clicked"]
+[connection signal="mouse_entered" from="Movable/Area2D" to="." method="_on_hover"]
+[connection signal="mouse_exited" from="Movable/Area2D" to="." method="_on_unhover"]
